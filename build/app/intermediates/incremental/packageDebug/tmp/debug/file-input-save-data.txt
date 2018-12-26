@@ -1,5 +1,5 @@
 #Internal package file, do not edit.
-#Wed Dec 26 12:18:06 EST 2018
+#Wed Dec 26 15:08:03 EST 2018
 4.path=classes.dex
 8.set=ASSET
 6.path=lib/x86_64/libflutter.so
