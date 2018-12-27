@@ -17,16 +17,16 @@ class ProductPage extends StatelessWidget {
             content: Text('This action cannot be undone!'),
             actions: <Widget>[
               FlatButton(
+                child: Text('BACK'),
+                onPressed: () {
+                  Navigator.pop(context);
+                },
+              ),
+              FlatButton(
                 child: Text('DELETE'),
                 onPressed: () {
                   Navigator.pop(context);
                   Navigator.pop(context, true);
-                },
-              ),
-              FlatButton(
-                child: Text('BACK'),
-                onPressed: () {
-                  Navigator.pop(context);
                 },
               ),
             ],
