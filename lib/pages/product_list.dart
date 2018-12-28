@@ -13,7 +13,9 @@ class ProductListPage extends StatelessWidget {
     return ListView.builder(
       itemBuilder: (BuildContext context, int index) {
         return ListTile(
-          //leading: Image.asset(products[index]['image']),
+          leading: CircleAvatar(
+            backgroundImage: AssetImage(products[index]['image']),
+          ),
           title: Text(products[index]['title']),
           trailing: IconButton(
             icon: Icon(Icons.edit),
