@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 
 import '../widgets/products/products.dart';
+import '../models/product.dart';
 
 class ProductsPage extends StatelessWidget {
-  final List<Map<String, dynamic>> products;
+  final List<Product> products;
 
   ProductsPage(this.products);
 
@@ -13,7 +14,7 @@ class ProductsPage extends StatelessWidget {
         children: <Widget>[
           AppBar(
             automaticallyImplyLeading: false,
-            title: Text('Choose'),
+            title: Text('Select'),
           ),
           ListTile(
             leading: Icon(Icons.create),

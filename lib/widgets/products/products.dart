@@ -1,13 +1,12 @@
 import 'package:flutter/material.dart';
 
 import './product_card.dart';
+import '../../models/product.dart';
 
 class Products extends StatelessWidget {
-  final List<Map<String, dynamic>> products;
+  final List<Product> products;
 
-  Products(this.products) {
-    print('[Products Widget] Constructor');
-  }
+  Products(this.products);
 
   Widget _buildProductLists() {
     Widget productCards;
@@ -29,7 +28,6 @@ class Products extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    print('[Products Widget] build()');
     return _buildProductLists();
   }
 }

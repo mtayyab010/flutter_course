@@ -8,7 +8,7 @@ class AuthPage extends StatefulWidget {
 }
 
 class _AuthPage extends State<AuthPage> {
-  Map<String, dynamic> _formData = {'email': null, 'password': null, 'acceptTerms' : false};
+  Map<String, dynamic> _formData = {'email': null, 'password': null, 'acceptTerms': false};
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
 
   DecorationImage _buildBackgroundImage() {
