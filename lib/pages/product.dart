@@ -12,6 +12,26 @@ class ProductPage extends StatelessWidget {
 
   ProductPage(this.title, this.imageUrl, this.price, this.description);
 
+  Widget _buildAddressPriceRow() {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: <Widget>[
+        Text(
+          'Union Square, New York City',
+          style: TextStyle(fontFamily: 'Oswald'),
+        ),
+        Container(
+          margin: EdgeInsets.symmetric(horizontal: 5.0, vertical: 5.0),
+          child: Text(
+            '|',
+            style: TextStyle(color: Colors.grey),
+          ),
+        ),
+        Text('\$' + price.toString())
+      ],
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return WillPopScope(
@@ -32,23 +52,7 @@ class ProductPage extends StatelessWidget {
               padding: EdgeInsets.all(10.0),
               child: TitleDefault(title),
             ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: <Widget>[
-                Text(
-                  'Union Square, New York City',
-                  style: TextStyle(fontFamily: 'Oswald'),
-                ),
-                Container(
-                  margin: EdgeInsets.symmetric(horizontal: 5.0, vertical: 5.0),
-                  child: Text(
-                    '|',
-                    style: TextStyle(color: Colors.grey),
-                  ),
-                ),
-                Text('\$${price}')
-              ],
-            ),
+            _buildAddressPriceRow(),
             Container(
               padding: EdgeInsets.all(10.0),
               alignment: Alignment.center,
