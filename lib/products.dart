@@ -17,13 +17,13 @@ class Products extends StatelessWidget {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
-                  Expanded(child:Text(
+                  Text(
                     products[index]['title'],
                     style: TextStyle(
                         fontSize: 26.0,
                         fontWeight: FontWeight.bold,
                         fontFamily: 'Oswald'),
-                  ),),
+                  ),
                   SizedBox(width: 8.0),
                   Container(
                     padding:
@@ -48,12 +48,20 @@ class Products extends StatelessWidget {
           ButtonBar(
             alignment: MainAxisAlignment.center,
             children: <Widget>[
-              FlatButton(
-                  color: Theme.of(context).accentColor,
-                  textColor: Colors.white,
-                  child: Text('Details'),
-                  onPressed: () => Navigator.pushNamed<bool>(
-                      context, '/product/' + index.toString()))
+              IconButton(
+                icon: Icon(Icons.info),
+                iconSize: 40.0,
+                color: Theme.of(context).accentColor,
+                onPressed: () => Navigator.pushNamed<bool>(
+                    context, '/product/' + index.toString()),
+              ),
+              IconButton(
+                icon: Icon(Icons.favorite_border),
+                iconSize: 40.0,
+                color: Colors.red,
+                onPressed: () => Navigator.pushNamed<bool>(
+                    context, '/product/' + index.toString()),
+              )
             ],
           )
         ],
