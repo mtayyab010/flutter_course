@@ -47,7 +47,7 @@ class _AuthPage extends State<AuthPage> {
           fillColor: Colors.white.withOpacity(0.8)),
           validator: (String value) {
             if (value.isEmpty || value.length < 6) {
-              return 'Password invalid and must be greater than 6 characters';
+              return 'Password invalid and must be at least 6 characters';
             }
           },
       onSaved: (String value) {
