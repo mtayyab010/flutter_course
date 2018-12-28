@@ -19,7 +19,12 @@ class ProductEditPage extends StatefulWidget {
 }
 
 class _ProductEditPageState extends State<ProductEditPage> {
-  Product _formData = Product(title: null, description: null, price: null, image: 'assets/food.jpg');
+  final Map<String, dynamic> _formData = {
+    'title': null,
+    'description': null,
+    'price': null,
+    'image': 'assets/food.jpg'
+  };
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
   final _titleFocusNode = FocusNode();
   final _descriptionFocusNode = FocusNode();
@@ -38,7 +43,7 @@ class _ProductEditPageState extends State<ProductEditPage> {
           }
         },
         onSaved: (String title) {
-          _formData.title = title;
+          _formData['title'] = title;
         },
       ),
     );
@@ -50,15 +55,14 @@ class _ProductEditPageState extends State<ProductEditPage> {
       child: TextFormField(
         maxLines: 4,
         decoration: InputDecoration(labelText: 'Product Description'),
-        initialValue:
-            widget.product == null ? '' : widget.product.description,
+        initialValue: widget.product == null ? '' : widget.product.description,
         validator: (String value) {
           if (value.isEmpty || value.length < 10) {
             return 'Description is required and should be greater than 10 characters.';
           }
         },
         onSaved: (String description) {
-          _formData.description = description;
+          _formData['description'] = description;
         },
       ),
     );
@@ -80,7 +84,7 @@ class _ProductEditPageState extends State<ProductEditPage> {
         },
         decoration: InputDecoration(labelText: 'Product Price'),
         onSaved: (String price) {
-          _formData.price = double.parse(price);
+          _formData['price'] = double.parse(price);
         },
       ),
     );
@@ -133,9 +137,22 @@ class _ProductEditPageState extends State<ProductEditPage> {
     }
     _formKey.currentState.save();
     if (widget.product == null) {
-      widget.addProduct(_formData);
+      widget.addProduct(
+        Product(
+            title: _formData['title'],
+            description: _formData['description'],
+            price: _formData['price'],
+            image: 'assets/food.jpg'),
+      );
     } else {
-      widget.updateProduct(widget.productIndex, _formData);
+      widget.updateProduct(
+        widget.productIndex,
+        Product(
+            title: _formData['title'],
+            description: _formData['description'],
+            price: _formData['price'],
+            image: 'assets/food.jpg'),
+      );
     }
     Navigator.pushReplacementNamed(context, '/products');
   }
